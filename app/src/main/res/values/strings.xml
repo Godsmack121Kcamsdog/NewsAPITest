@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NewsApplication</string>
+    <string name="api_key">be0967887b24496cbc101924d254b042</string>
+    <string name="host">https://newsapi.org/v1/</string>
+</resources>
