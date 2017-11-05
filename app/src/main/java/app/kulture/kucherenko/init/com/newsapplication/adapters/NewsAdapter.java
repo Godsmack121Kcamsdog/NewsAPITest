@@ -23,7 +23,6 @@ import static app.kulture.kucherenko.init.com.newsapplication.utils.DateTimeUtil
 import static app.kulture.kucherenko.init.com.newsapplication.utils.DateTimeUtils.formatOrderDateTimeForItem;
 
 /**
- *
  * Created by alex on 04/11/17.
  */
 
@@ -62,22 +61,26 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsHolder> {
         holder.binding.info.header.setText(list.get(position).getTitle());
         holder.binding.info.news.setText(list.get(position).getDescription());
         //author name
-        String author = "Author: " + list.get(position).getAuthor();
-        //prepare date for formatting
-        String date = list.get(position).getPublishedAt().replace("T", " ").replace("Z", "");
-        //get time in correct format from date
-        String time = formatOrderDateTimeForItem(date.split(" ")[1], HH, HH_mm_ss);
-        //format date
-        date = formatOrderDateTimeForItem(date, DD_MMMM_YYYY, YYYY_MM_DD_HH_mm_SS);
-        holder.binding.info.author.setText(author);
-        holder.binding.info.date.setText(String.valueOf("Date: " + date));
-        //PM or AM label
-        if (Integer.parseInt(time) > 12)
-            holder.binding.time.value.setText(String.valueOf((Integer.parseInt(time) - 12) + " PM"));
-        else {
-            if (time.equals("00")) holder.binding.time.value.setText(String.valueOf("12 PM"));
-            else
-                holder.binding.time.value.setText(String.valueOf(time + " AM"));
+        if (list.get(position).getAuthor() != null) {
+            String author = "Author: " + list.get(position).getAuthor();
+            holder.binding.info.author.setText(author);
+        }
+        if (list.get(position).getPublishedAt() != null) {
+            //prepare date for formatting
+            String date = list.get(position).getPublishedAt().replace("T", " ").replace("Z", "");
+            //get time in correct format from date
+            String time = formatOrderDateTimeForItem(date.split(" ")[1], HH, HH_mm_ss);
+            //format date
+            date = formatOrderDateTimeForItem(date, DD_MMMM_YYYY, YYYY_MM_DD_HH_mm_SS);
+            holder.binding.info.date.setText(String.valueOf("Date: " + date));
+            //PM or AM label
+            if (Integer.parseInt(time) > 12)
+                holder.binding.time.value.setText(String.valueOf((Integer.parseInt(time) - 12) + " PM"));
+            else {
+                if (time.equals("00")) holder.binding.time.value.setText(String.valueOf("12 PM"));
+                else
+                    holder.binding.time.value.setText(String.valueOf(time + " AM"));
+            }
         }
         holder.setArticle(list.get(position));
         if (list.get(position).getUrlToImage() != null)

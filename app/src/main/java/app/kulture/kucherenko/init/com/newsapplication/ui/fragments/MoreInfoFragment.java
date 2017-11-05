@@ -32,7 +32,9 @@ public class MoreInfoFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.news_fragment, container, false);
         NewsFragmentBinding binding = DataBindingUtil.bind(view);
-        binding.web.loadUrl(article.getUrl());
+        if (article.getUrl() != null)
+            binding.web.loadUrl(article.getUrl());
+        else dismiss();
         return view;
     }
 
