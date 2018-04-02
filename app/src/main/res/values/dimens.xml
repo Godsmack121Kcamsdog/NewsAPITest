@@ -1,0 +1,7 @@
+<resources>
+
+    <dimen name="news_header">20sp</dimen>
+    <dimen name="info_size">50dp</dimen>
+    <dimen name="block_lft_mrg">10dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+</resources>
