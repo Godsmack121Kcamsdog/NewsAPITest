@@ -37,6 +37,6 @@ public class MainPresenter implements MainContract.EventListener {
     public void errorOccurred(Throwable error) {
         Log.e(Constants.ERROR_TAG, error.getMessage());
         Toast.makeText(view.getContext(), "Error occurred", Toast.LENGTH_SHORT).show();
-        //This is my dev branch
+        //this is master
     }
 }
