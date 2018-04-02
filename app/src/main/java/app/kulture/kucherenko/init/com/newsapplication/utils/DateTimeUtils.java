@@ -1,7 +1,5 @@
 package app.kulture.kucherenko.init.com.newsapplication.utils;
 
-import android.util.Log;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

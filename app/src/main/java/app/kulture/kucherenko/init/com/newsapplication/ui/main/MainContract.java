@@ -22,6 +22,6 @@ public interface MainContract {
 
     interface EventListener {
         void getNews(String sort);
-        void errorOccured(Throwable error);
+        void errorOccurred(Throwable error);
     }
 }
